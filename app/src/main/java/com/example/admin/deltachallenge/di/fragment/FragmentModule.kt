@@ -2,6 +2,7 @@ package com.example.admin.deltachallenge.di.fragment
 
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v4.app.Fragment
+import com.example.admin.deltachallenge.di.factories.MainViewModelFactory
 import com.example.admin.deltachallenge.ui.MainViewModel
 import dagger.Module
 import dagger.Provides
@@ -11,7 +12,7 @@ class FragmentModule(private val fragment: Fragment) {
 
     @Provides
     @FragmentScope
-    fun providesMainViewModel(): MainViewModel {
-        return ViewModelProviders.of(fragment).get(MainViewModel::class.java)
+    fun providesMainViewModel(mainViewModelFactory: MainViewModelFactory): MainViewModel {
+        return ViewModelProviders.of(fragment, mainViewModelFactory).get(MainViewModel::class.java)
     }
 }

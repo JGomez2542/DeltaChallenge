@@ -35,7 +35,7 @@ class RecyclerViewFragment : Fragment() {
 
     private fun setUpObservers() {
         mainViewModel.getRandomNumbers().observe(this, Observer {
-            binding.recyclerView.apply {
+            binding.rvNumbers.apply {
                 adapter = it?.let { numberList -> RandomNumbersAdapter(numberList, communicatorViewModel) }
                 layoutManager = LinearLayoutManager(activity)
             }

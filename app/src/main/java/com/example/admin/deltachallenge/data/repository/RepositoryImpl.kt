@@ -13,7 +13,7 @@ class RepositoryImpl(private val remoteServiceHelper: RemoteServiceHelper) : Rep
     override val averageLiveData: MutableLiveData<Double> = MutableLiveData()
     override val randomNumbersLiveData: MutableLiveData<NumbersResponse> = MutableLiveData()
 
-    override fun getRandomNumbers() {
+    override fun getRandomNumbers(): MutableLiveData<NumbersResponse> {
         val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
             if (throwable is HttpException) {
                 //TODO implement exception handling
@@ -30,5 +30,6 @@ class RepositoryImpl(private val remoteServiceHelper: RemoteServiceHelper) : Rep
             averageLiveData.postValue(numbersResponse.data.average())
             randomNumbersLiveData.postValue(numbersResponse)
         }
+        return randomNumbersLiveData
     }
 }

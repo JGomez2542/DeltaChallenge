@@ -14,5 +14,4 @@ interface ApplicationComponent {
 
     fun inject(communicatorViewModel: CommunicatorViewModel)
 
-    fun inject(mainViewModel: MainViewModel)
 }

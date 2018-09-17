@@ -9,5 +9,5 @@ interface Repository {
 
     val averageLiveData: MutableLiveData<Double>
 
-    fun getRandomNumbers()
+    fun getRandomNumbers(): MutableLiveData<NumbersResponse>
 }
