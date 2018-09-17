@@ -30,6 +30,8 @@ class RandomNumbersAdapter(private val randomNumbers: List<Int>,
         }
     }
 
+    fun getItem(position: Int) = randomNumbers[position]
+
     class ViewHolder(var binding: RecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
 }
